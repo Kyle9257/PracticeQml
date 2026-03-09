@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>JavaScript/JavaScriptArray.qml</file>
+        <file>JavaScript/JavaScriptMap.qml</file>
+        <file>JavaScript/MapPractice.qml</file>
+        <file>JavaScript/QmlObject.qml</file>
     </qresource>
 </RCC>

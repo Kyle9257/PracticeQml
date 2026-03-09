@@ -5,7 +5,12 @@
 Item {
     id:root
 
+    //数组内为纯数字
     property var array1: [1,2,3,4,5]
+
+    //数组内为JavaScript对象，对象
+    property var array: [{name : "a" , age : 30},
+     {name : "b" , age: 35 , level:1}]
 
 
     function outputArray(arry){
@@ -13,33 +18,30 @@ Item {
     }
 
     Component.onCompleted: {
+        arrayParse1()
 
-        //判断是否所有参数满足条件
-        var arr1 = [1, 2, 3];
-        var arr2 = [4, 5, 6];
-        var arr3 = [7, 8, 9];
+        var newArray = array1.filter(function(a,b){
 
-        var carray = arr1.concat(arr2,arr3);
-        console.log("combine",carray)
-
-
-        //遍历
-        for(var i = 0; i < root.array1.length; i++){
-            console.log("value",array1[i])
-        }
-        //第二种遍历
-        for(var value of array1){
-            console.log("for...of..",value)
-        }
-        //第三种遍历
-        array1.forEach(function(value,index){
-
-        console.log("for..Each",index,"值:",value);
         })
 
-        array1.forEach(function(index,value){
 
-        console.log("index",index,"value",value)//在JavaScript中，forEach的回调函数参数顺序是固定的：第一个参数是当前元素的值，第二个参数是当前索引，第三个参数是数组本身。
-        })
+    }
+
+
+    function arrayParse1(){
+        var array = [ 1, 1,2 ,3,3,4,4,5,5,6,6,7,8,9,10]
+
+        var removed = array.slice(2,5) //索引从2到5（不包括5）
+        console.log("removed",removed)
+
+        array.splice(4,2)//
+        console.log("spliced",array)//删除从索引1开始，2个长度数
+
+        var newA = array.findIndex(value=>value>5)
+        console.log("newA",newA)
+
+        let newArr = array.filter(value=>value>5)
+        console.log("newArr",newArr)
+
     }
 }

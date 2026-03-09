@@ -9,7 +9,20 @@ Window {
     title: qsTr("Hello World")
 
 
-    JavaScriptArray{
+    // JavaScriptArray{
+
+    // }
+
+    // JavaScriptMap{
+
+    // }
+    MapPractice{
+        id:mapPractice
+        width: 200
+        height: 320
+    }
+
+    QmlObject{
 
     }
 }
