@@ -4,5 +4,5 @@ Interactor::Interactor() {}
 
 void Interactor::initEngine(QQmlEngine *engine)
 {
-    engine->rootContext()->setContexProperty();
+   // engine->rootContext()->setContextProperty("DeviceHandler",);
 }
