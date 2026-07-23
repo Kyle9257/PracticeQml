@@ -9,4 +9,4 @@ Makefile
 Makefile.Debug
 Makefile.Release
 *.pro.user
-*.user No newline at end of file
+*.user
