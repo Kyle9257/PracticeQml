@@ -8,5 +8,6 @@
         <file>JavaScript/ArrayAdvanced.qml</file>
         <file>JavaScript/ArrayChainPractice.qml</file>
         <file>Object/ObjectPractice.qml</file>
+        <file>DevicePractice/DevicePractice.qml</file>
     </qresource>
 </RCC>

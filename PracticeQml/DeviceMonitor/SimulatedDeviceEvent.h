@@ -23,9 +23,9 @@ public:
 
 public:
     int device_id;
-    int voltage;
-    int current;
-    int soc;
+    double voltage;
+    double current;
+    double soc;
     QString version;
 
 

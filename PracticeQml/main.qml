@@ -1,6 +1,7 @@
 ﻿import QtQuick 2.15
 import QtQuick.Window 2.15
 import "JavaScript"
+import "./DevicePractice"
 
 Window {
     width: 800
@@ -9,8 +10,14 @@ Window {
     title: qsTr("QML数组操作学习")
 
 
-    JavaScriptArray{
+    DevicePractice{
+        id:deviceMonitor
+        width: 400
+        height: 80
     }
+
+    // JavaScriptArray{
+    // }
 
     // JavaScriptMap{
 
@@ -27,9 +34,9 @@ Window {
     // }
 
     // 数组高级操作 - reduce/sort/some/every/flat
-    ArrayAdvanced {
-        anchors.fill: parent
-    }
+    // ArrayAdvanced {
+    //     anchors.fill: parent
+    // }
 
     // 数组链式调用实战 - 取消注释后可切换
     // ArrayChainPractice {

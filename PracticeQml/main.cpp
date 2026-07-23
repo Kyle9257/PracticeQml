@@ -1,5 +1,6 @@
-#include <QGuiApplication>
+﻿#include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "Interactor.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,7 +9,11 @@ int main(int argc, char *argv[])
 #endif
     QGuiApplication app(argc, argv);
 
+    Interactor interactor;
     QQmlApplicationEngine engine;
+
+    interactor.initEngine(&engine);
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(
         &engine,

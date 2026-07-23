@@ -2,14 +2,16 @@
 #define IMAGEGET_H
 
 #include <QObject>
+#include <QVariantMap>
 
-//主要是获取图片
-
-class ImageGet
+class ImageGet :public QObject
 {
     Q_OBJECT
+
 public:
     ImageGet();
+
+
 };
 
 #endif // IMAGEGET_H

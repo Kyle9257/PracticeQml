@@ -4,15 +4,21 @@ QT += quick core
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+CONFIG += c++17
+
 SOURCES += \
         DeviceHandler.cpp \
         Interactor.cpp \
+        SystemControlCore.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
 
 include(DeviceMonitor/DeviceMonitor.pri)
 include(ImageGetter/ImageGetter.pri)
+
+
+INCLUDEPATH += $$PWD/DeviceMonitor
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -27,4 +33,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     DeviceHandler.h \
-    Interactor.h
+    Interactor.h \
+    SystemControlCore.h

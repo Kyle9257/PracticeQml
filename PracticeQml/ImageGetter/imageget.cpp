@@ -1,3 +1,4 @@
 ﻿#include "ImageGet.h"
 
-ImageGet::ImageGet() {}
+ImageGet::ImageGet() {
+}
