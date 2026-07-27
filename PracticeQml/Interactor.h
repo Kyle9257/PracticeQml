@@ -5,6 +5,7 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include "DeviceHandler.h"
+#include "ImageHandle.h"
 
 class Interactor :public QObject
 {
@@ -20,6 +21,8 @@ private:
 private:
 
     std::shared_ptr<DeviceHandler> m_deviceHandle = nullptr;
+
+    ImageHandlePtr  m_imageHandle  = nullptr;
 
 };
 

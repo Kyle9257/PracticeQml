@@ -10,3 +10,5 @@ Makefile.Debug
 Makefile.Release
 *.pro.user
 *.user
+/PracticeQml/thirdpart
+/PracticeQml/bin

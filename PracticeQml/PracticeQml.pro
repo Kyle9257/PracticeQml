@@ -1,4 +1,4 @@
-QT += quick core
+QT += quick core widgets
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -6,8 +6,27 @@ QT += quick core
 
 CONFIG += c++17
 
+opencv_dir = $$PWD/thirdpart/opencv454
+
+INCLUDEPATH += $$opencv_dir/include
+
+CONFIG(debug, release|debug){
+
+    TARGET = Paracticed
+    DESTDIR = $$PWD/bin/debug
+    LIBS += -L$$opencv_dir/lib        -lopencv_world454d
+}
+
+CONFIG(release, release|debug){
+
+    TARGET = Paractice
+    DESTDIR = $$PWD/bin/release
+    LIBS += -L$$opencv_dir/lib        -lopencv_world454
+}
+
 SOURCES += \
         DeviceHandler.cpp \
+        ImageHandle.cpp \
         Interactor.cpp \
         SystemControlCore.cpp \
         main.cpp
@@ -33,5 +52,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     DeviceHandler.h \
+    ImageHandle.h \
     Interactor.h \
     SystemControlCore.h
