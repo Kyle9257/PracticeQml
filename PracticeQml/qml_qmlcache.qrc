@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="main.qml">main.qml</file>
+        <file alias="JavaScript/JavaScriptArray.qml">JavaScript/JavaScriptArray.qml</file>
+        <file alias="JavaScript/JavaScriptMap.qml">JavaScript/JavaScriptMap.qml</file>
+        <file alias="JavaScript/MapPractice.qml">JavaScript/MapPractice.qml</file>
+        <file alias="JavaScript/QmlObject.qml">JavaScript/QmlObject.qml</file>
+        <file alias="JavaScript/ArrayAdvanced.qml">JavaScript/ArrayAdvanced.qml</file>
+        <file alias="JavaScript/ArrayChainPractice.qml">JavaScript/ArrayChainPractice.qml</file>
+        <file alias="Object/ObjectPractice.qml">Object/ObjectPractice.qml</file>
+        <file alias="DevicePractice/DevicePractice.qml">DevicePractice/DevicePractice.qml</file>
+    </qresource>
+</RCC>

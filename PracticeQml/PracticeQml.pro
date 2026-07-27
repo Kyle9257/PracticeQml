@@ -7,6 +7,7 @@ QT += quick core widgets
 CONFIG += c++17
 
 opencv_dir = $$PWD/thirdpart/opencv454
+json_dir = $$PWD/thidrdpart/nlohmann
 
 INCLUDEPATH += $$opencv_dir/include
 
