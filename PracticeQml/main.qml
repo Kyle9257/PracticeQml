@@ -21,7 +21,7 @@ MenuBar{
             }
         }
         MenuItem{
-            text: "获系列图片"
+            text: "获取系列图片"
             onTriggered: {
             ImageHandle.getSeriesMat();
             }

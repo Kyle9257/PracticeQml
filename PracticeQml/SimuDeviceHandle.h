@@ -1,5 +1,5 @@
-﻿#ifndef DEVICEHANDLER_H
-#define DEVICEHANDLER_H
+﻿#ifndef SIMUDEVICEHANDLE_H
+#define SIMUDEVICEHANDLE_H
 
 #include <QObject>
 #include "SimulatedDeviceEvent.h"
@@ -23,13 +23,13 @@ public:
 
 Q_DECLARE_METATYPE(Devicedata)
 
-class DeviceHandler :public QObject
+class SimuDeviceHandle :public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(Devicedata deviceData READ deviceData  NOTIFY deviceDataChanged FINAL)
 public:
-    DeviceHandler();
+    SimuDeviceHandle();
 
 
     Devicedata deviceData() const;
@@ -44,4 +44,4 @@ private:
     Devicedata m_deviceData;
 };
 
-#endif // DEVICEHANDLER_H
+#endif // SIMUDEVICEHANDLE_H

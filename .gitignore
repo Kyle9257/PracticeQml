@@ -12,3 +12,5 @@ Makefile.Release
 *.user
 /PracticeQml/thirdpart
 /PracticeQml/bin
+/CusConfig/debug
+/thirdpart

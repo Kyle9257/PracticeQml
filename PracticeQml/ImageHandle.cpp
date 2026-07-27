@@ -3,6 +3,7 @@
 #include <QDir>
 #include <QFileInfo>
 
+
 ImageHandle::ImageHandle() {}
 
 void ImageHandle::getMat()
@@ -30,7 +31,7 @@ void ImageHandle::getSeriesMat()
 {
     QString exePath = QCoreApplication::applicationFilePath();
 
-    QString filePath = QFileDialog::getExistingDirectory(NULL,tr("选择一个文件夹"),exePath);
+    QString filePath = QFileDialog::getExistingDirectory(nullptr,tr("选择一个文件夹"),exePath);
 
     //QDir操作目录和文件系统路径
     QDir dir(filePath);

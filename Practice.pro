@@ -1,3 +1,4 @@
 TEMPLATE = subdirs
 
-SUBDIRS += PracticeQml
+SUBDIRS += PracticeQml \
+    CusConfig

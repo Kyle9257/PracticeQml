@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QQmlContext>
-#include "DeviceHandler.h"
+#include "SimuDeviceHandle.h"
 #include "ImageHandle.h"
 
 class Interactor :public QObject
@@ -20,7 +20,7 @@ private:
     void init();
 private:
 
-    std::shared_ptr<DeviceHandler> m_deviceHandle = nullptr;
+    std::shared_ptr<SimuDeviceHandle> m_deviceHandle = nullptr;
 
     ImageHandlePtr  m_imageHandle  = nullptr;
 

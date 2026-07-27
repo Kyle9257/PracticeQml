@@ -1,13 +1,13 @@
-﻿#include "DeviceHandler.h"
+﻿#include "SimuDeviceHandle.h"
 #include "SystemControlCore.h"
 
 
-DeviceHandler::DeviceHandler() {
+SimuDeviceHandle::SimuDeviceHandle() {
     SystemControlCore::instance()->simulatedDevice()->regidterDisplayComponent(this);
     SystemControlCore::instance()->simulatedDevice()->testSend();
 }
 
-void DeviceHandler::customEvent(QEvent *event)
+void SimuDeviceHandle::customEvent(QEvent *event)
 {
     auto type = event->type();
 
@@ -18,7 +18,7 @@ void DeviceHandler::customEvent(QEvent *event)
     }
 }
 
-void DeviceHandler::handleDevieEvent(SimulatedDeviceEvent *evt)
+void SimuDeviceHandle::handleDevieEvent(SimulatedDeviceEvent *evt)
 {
     bool changed = false;
     auto updateValue = [&](auto &member, const auto &val) {
@@ -42,7 +42,7 @@ void DeviceHandler::handleDevieEvent(SimulatedDeviceEvent *evt)
 
 
 
-Devicedata DeviceHandler::deviceData() const
+Devicedata SimuDeviceHandle::deviceData() const
 {
     return m_deviceData;
 }

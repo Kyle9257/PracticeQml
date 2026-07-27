@@ -6,8 +6,10 @@ QT += quick core widgets
 
 CONFIG += c++17
 
-opencv_dir = $$PWD/thirdpart/opencv454
-json_dir = $$PWD/thidrdpart/nlohmann
+msvc: QMAKE_CXXFLAGS += /utf-8
+
+opencv_dir = $$PWD/../thirdpart/opencv454
+json_dir = $$PWD/../thidrdpart/nlohmann
 
 INCLUDEPATH += $$opencv_dir/include
 
@@ -26,7 +28,7 @@ CONFIG(release, release|debug){
 }
 
 SOURCES += \
-        DeviceHandler.cpp \
+        SimuDeviceHandle.cpp \
         ImageHandle.cpp \
         Interactor.cpp \
         SystemControlCore.cpp \
@@ -52,7 +54,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    DeviceHandler.h \
+    Commondefine.h \
+    SimuDeviceHandle.h \
     ImageHandle.h \
     Interactor.h \
     SystemControlCore.h

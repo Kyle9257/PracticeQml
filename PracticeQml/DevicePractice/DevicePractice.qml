@@ -26,7 +26,7 @@ Item {
                 spacing: 5
                 Text {
                     id: voltageValue
-                    text: DeviceHandler.deviceData.voltage
+                    text: SimuDeviceHandle.deviceData.voltage
                     font.pixelSize: 18
                 }
 
@@ -52,7 +52,7 @@ Item {
                 spacing: 5
                 Text {
                     id: currentValue
-                    text: DeviceHandler.deviceData.current.toFixed(2)
+                    text: SimuDeviceHandle.deviceData.current.toFixed(2)
                     font.pixelSize: 18
                 }
 
@@ -79,7 +79,7 @@ Item {
                 spacing: 5
                 Text {
                     id: soctValue
-                    text: DeviceHandler.deviceData.soc
+                    text: SimuDeviceHandle.deviceData.soc
                     font.pixelSize: 18
                 }
 
