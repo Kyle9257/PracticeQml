@@ -8,16 +8,18 @@ CONFIG += c++17
 
 msvc: QMAKE_CXXFLAGS += /utf-8
 
-opencv_dir = $$PWD/../thirdpart/opencv454
-json_dir = $$PWD/../thidrdpart/nlohmann
+opencv_dir          = $$PWD/../thirdpart/opencv454
+CusConfig_dir       = $$PWD/../thirdpart/CusConfig
 
 INCLUDEPATH += $$opencv_dir/include
+INCLUDEPATH += $$CusConfig_dir/include
 
 CONFIG(debug, release|debug){
 
     TARGET = Paracticed
     DESTDIR = $$PWD/bin/debug
     LIBS += -L$$opencv_dir/lib        -lopencv_world454d
+    LIBS += -L$$CusConfig_dir/lib     -lCusConfigd
 }
 
 CONFIG(release, release|debug){
@@ -25,6 +27,7 @@ CONFIG(release, release|debug){
     TARGET = Paractice
     DESTDIR = $$PWD/bin/release
     LIBS += -L$$opencv_dir/lib        -lopencv_world454
+    LIBS += -L$$CusConfig_dir/lib     -lCusConfig
 }
 
 SOURCES += \

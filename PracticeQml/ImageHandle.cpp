@@ -2,14 +2,17 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include "CusConfig.h"
+#include "Commondefine.h"
 
 
 ImageHandle::ImageHandle() {}
 
 void ImageHandle::getMat()
 {
-    QString exePath = QCoreApplication::applicationFilePath();
+    auto tempPath = CusConfig::instance()->getValue<std::string>(ConfigKeys::SAVE_IMAGE_PATH);
 
+    QString exePath = QString::fromStdString(tempPath);
     //打开一个文件选择窗口
     QString filePath = QFileDialog::getOpenFileName(NULL,tr("select a file"),exePath);
     if(filePath.isNull()){
@@ -29,9 +32,20 @@ void ImageHandle::getMat()
 
 void ImageHandle::getSeriesMat()
 {
-    QString exePath = QCoreApplication::applicationFilePath();
+    auto tempPath = CusConfig::instance()->getValue<std::string>(ConfigKeys::SAVE_IMAGE_PATH);
 
-    QString filePath = QFileDialog::getExistingDirectory(nullptr,tr("选择一个文件夹"),exePath);
+    QString configPath = QString::fromStdString(tempPath);
+
+    QString filePath = QFileDialog::getExistingDirectory(nullptr,tr("选择一个文件夹"),configPath);
+
+    if( filePath.isEmpty() ){
+        return;
+    }
+
+    //文件不同时候，修改配置文件内容
+    if(configPath != filePath ){
+        CusConfig::instance()->setValue(ConfigKeys::SAVE_IMAGE_PATH,filePath.toStdString());
+    }
 
     //QDir操作目录和文件系统路径
     QDir dir(filePath);

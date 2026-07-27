@@ -2,7 +2,6 @@
 #define CUSCONFIG_H
 
 #include "CusConfig_global.h"
-#include "json.hpp"
 #include "QString"
 #include "QDebug"
 
@@ -22,60 +21,21 @@ public:
 
     //获取键对应值
     template<typename T>
-    inline T getValue(const std::string &key, const T& defaultValue = T()){
-        try {
-            if(m_json.contains(key))
-            {
-                return m_json[key].get<T>();
-            }else {
-                m_json[key] = defaultValue;
-                writeJsonTofile();
-            }
-
-        } catch (const std::exception &e) {
-            qWarning()<< "getValue failed:" <<QString::fromStdString(key) << e.what();
-        }
-        return defaultValue;
-    }
+    T getValue(const std::string &key, const T& defaultValue = T());
 
     //获取嵌套参数
     template<typename T>
-    inline T getNestedValue(const std::string &nestPath,const std::string &key,const T &defaultValut = T()){
-        try {
-            if(!m_json.contains(nestPath)){
-                qWarning()<< "Path dose not exists, please check config file.";
-                m_json[nestPath][key] = defaultValut;
-                writeJsonTofile();
-                return defaultValut;
-            }
-            if(!m_json[nestPath].contains(key)){
-                qWarning()<< "Key dose not exists,please check config file.";
-                m_json[nestPath][key] = defaultValut;
-                writeJsonTofile();
-                return defaultValut;
-            }
-            return m_json[nestPath][key].get<T>();
-        } catch (const std::exception &e) {
-            qWarning() << "getNestedValue failed:" << QString::fromStdString(nestPath)
-            << "/" << QString::fromStdString(key) << e.what();
-        }
-        return defaultValut;
-    }
+    T getNestedValue(const std::string &nestPath,const std::string &key,const T &defaultValue = T());
 
     //写入非嵌套参数
     template<typename T>
-    inline void setValue (const std::string &key ,const T & value,const T&defaultValue = T()){
-        m_json[key] = value;    //不管有没有key，都写入缓存
-        writeJsonTofile();      //再写入文件
-    }
+    void setValue (const std::string &key ,const T & value);
 
     template<typename T>
-    inline void setNestValue(const std::string &nestPath ,
-                             const std::string &key,
-                             const T &value,
-                             const std::string &defaultValue = T()){
-        m_json[nestPath][key] = value;
-    }
+    void setNestValue(const std::string &nestPath ,
+                      const std::string &key,
+                      const T &value,
+                      const std::string &defaultValue = T());
 
     //拷贝构造函数
     CusConfig(const CusConfig&) = delete;
@@ -92,7 +52,9 @@ private:
 
 private:
     //读取的程序配置，json格式
-    nlohmann::json m_json;
+    class Impl;
+    std::unique_ptr<Impl> m_implPtr;
+    //nlohmann::json m_json;
 };
 
 #endif // CUSCONFIG_H

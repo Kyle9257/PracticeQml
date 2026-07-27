@@ -34,8 +34,6 @@ win32 {
 
     # 复制文件
     QMAKE_POST_LINK += $$QMAKE_COPY $$shell_path($$DESTDIR/$${TARGET}.dll) $$shell_path($$BIN_DIR) $$escape_expand(\\n\\t)
-    QMAKE_POST_LINK += $$QMAKE_COPY $$shell_path($$DESTDIR/$${TARGET}.dll) $$shell_path($$BIN_DIR) $$escape_expand(\\n\\t)
-
 
     QMAKE_POST_LINK += $$QMAKE_COPY $$shell_path($$PWD/*.h) $$shell_path($$HEAD_DIR) $$escape_expand(\\n\\t)
 
