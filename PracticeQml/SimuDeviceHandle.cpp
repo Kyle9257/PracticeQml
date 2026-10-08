@@ -11,6 +11,12 @@ SimuDeviceHandle::SimuDeviceHandle() {
     m_dataRecord = new DataRecordManager();
 }
 
+SimuDeviceHandle::~SimuDeviceHandle()
+{
+    delete m_dataRecord;
+    m_dataRecord = nullptr;
+}
+
 void SimuDeviceHandle::devieDataSave(bool ok)
 {
     m_deviceData.isRecord = ok;
@@ -70,14 +76,3 @@ Devicedata SimuDeviceHandle::deviceData() const
     return m_deviceData;
 }
 
-QString SimuDeviceHandle::getCurFileName()
-{
-    auto curDateTime = QDateTime::currentDateTime().toString("yyyy-MM-dd#hh_mm_ss");
-    auto curDir = QCoreApplication::applicationDirPath();
-    auto targetDirName = curDir + "/dataRecord";
-    QDir dir;
-    dir.mkdir(targetDirName);//创建文件路径？
-
-    auto fileName = targetDirName + "/" + "DataSave" + curDateTime + ".csv";
-    return fileName;
-}

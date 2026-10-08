@@ -35,6 +35,7 @@ class SimuDeviceHandle :public QObject
     Q_PROPERTY(Devicedata deviceData READ deviceData  NOTIFY deviceDataChanged FINAL)
 public:
     SimuDeviceHandle();
+    ~SimuDeviceHandle();
 
     //数据保存
     Q_INVOKABLE void devieDataSave(bool ok);
@@ -42,8 +43,6 @@ public:
 
     Devicedata deviceData() const;
 
-private:
-    QString getCurFileName();
 
 signals:
     void deviceDataChanged();
@@ -53,8 +52,7 @@ protected:
     void handleDevieEvent(SimulatedDeviceEvent * evt);
 private:
     Devicedata m_deviceData;
-    std::ofstream *m_dataWrite  = nullptr;
-    std::string m_curFileName = "";
+
     DataRecordManager *m_dataRecord = nullptr;
 };
 
