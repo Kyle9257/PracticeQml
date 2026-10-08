@@ -32,34 +32,8 @@ MenuBar{
     DevicePractice{
         id:deviceMonitor
         width: 400
-        height: 80
-        y:100
+        height: 150
+        y:50
+        x:10
     }
-
-    // JavaScriptArray{
-    // }
-
-    // JavaScriptMap{
-
-    // }
-
-    // MapPractice{
-    //     id:mapPractice
-    //     width: 200
-    //     height: 320
-    // }
-
-    // QmlObject{
-
-    // }
-
-    // 数组高级操作 - reduce/sort/some/every/flat
-    // ArrayAdvanced {
-    //     anchors.fill: parent
-    // }
-
-    // 数组链式调用实战 - 取消注释后可切换
-    // ArrayChainPractice {
-    //     anchors.fill: parent
-    // }
 }

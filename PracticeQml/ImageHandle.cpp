@@ -10,13 +10,17 @@ ImageHandle::ImageHandle() {}
 
 void ImageHandle::getMat()
 {
-    auto tempPath = CusConfig::instance()->getValue<std::string>(ConfigKeys::SAVE_IMAGE_PATH);
+    auto tempPath = CusConfig::instance()->getValue<std::string>(ConfigKeys::SINGLE_MAT_PATH);
 
-    QString exePath = QString::fromStdString(tempPath);
+    QString configPath = QString::fromStdString(tempPath);
     //打开一个文件选择窗口
-    QString filePath = QFileDialog::getOpenFileName(NULL,tr("select a file"),exePath);
+    QString filePath = QFileDialog::getOpenFileName(NULL,tr("select a file"),configPath);
     if(filePath.isNull()){
         return;
+    }
+
+    if(configPath != filePath){
+        CusConfig::instance()->setValue(ConfigKeys::SINGLE_MAT_PATH,filePath.toStdString());
     }
 
     qDebug()<< "fileName:" << filePath;

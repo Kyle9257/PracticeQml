@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include "SimulatedDeviceEvent.h"
+#include <fstream>
+#include <iostream>
+#include "DataSaveManager/DataRecordManager.h"
 
 struct Devicedata
 {
@@ -12,12 +15,14 @@ struct Devicedata
     Q_PROPERTY(double current   MEMBER current)
     Q_PROPERTY(double soc       MEMBER soc)
     Q_PROPERTY(QString version  MEMBER version)
+    Q_PROPERTY(bool isRecord  MEMBER isRecord)
 
 public:
     int deviceID    = 0;
     double voltage = 359.8;
     double current = 10.9;
     double soc = 100;
+    bool isRecord = false;
     QString version = "1.20.36";
 };
 
@@ -31,8 +36,14 @@ class SimuDeviceHandle :public QObject
 public:
     SimuDeviceHandle();
 
+    //数据保存
+    Q_INVOKABLE void devieDataSave(bool ok);
+
 
     Devicedata deviceData() const;
+
+private:
+    QString getCurFileName();
 
 signals:
     void deviceDataChanged();
@@ -42,6 +53,9 @@ protected:
     void handleDevieEvent(SimulatedDeviceEvent * evt);
 private:
     Devicedata m_deviceData;
+    std::ofstream *m_dataWrite  = nullptr;
+    std::string m_curFileName = "";
+    DataRecordManager *m_dataRecord = nullptr;
 };
 
 #endif // SIMUDEVICEHANDLE_H

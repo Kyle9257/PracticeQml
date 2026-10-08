@@ -41,6 +41,7 @@ RESOURCES += qml.qrc
 
 include(DeviceMonitor/DeviceMonitor.pri)
 include(ImageGetter/ImageGetter.pri)
+include(DataSaveManager/DataSaveManager.pri)
 
 
 INCLUDEPATH += $$PWD/DeviceMonitor

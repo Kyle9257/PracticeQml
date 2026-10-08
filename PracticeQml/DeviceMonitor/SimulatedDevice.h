@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QVariantMap>
+#include <QTimer>
+
+//设备模拟类，
 
 enum SystemDevice{
     ATP                = 0x01,
@@ -39,8 +42,13 @@ private :
     void initDeviceInfo();
     void handleDeviceMessage();
 
+private slots:
+    void onSimulateTimeout();
+
 private:
     QObject *m_displayComponent = nullptr;
+
+    QTimer *m_simulateTimer = nullptr;
 };
 
 using SimulatedDevicePtr = std::shared_ptr<SimulatedDevice>;
